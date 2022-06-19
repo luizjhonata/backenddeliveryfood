@@ -19,7 +19,7 @@ public class ProductService {
     private ProductRepository repository;
 
 
-    //Método para buscar todos os Produtos Pelo Preço DESC
+    //SERVICE para buscar todos os Produtos Pelo Preço DESC
     //Garante o fechamento da conexão com o banco de dados, não realizando unlock, ficando assim mais rápido
     @Transactional(readOnly = true)
     public List<ProductDTO> findAllByOrderByPriceDesc() {
@@ -27,7 +27,13 @@ public class ProductService {
         return list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
     }
 
-
+    //SERVICE para inserir novos produtos
+    @Transactional
+    public ProductDTO insert(ProductDTO dto) {
+        Product product = new Product(null, dto.getName(), dto.getDescription(), dto.getPrice(), dto.getImageUri());
+        product = repository.save(product);
+        return new ProductDTO(product);
+    }
 
 
 }
