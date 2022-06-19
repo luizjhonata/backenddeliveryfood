@@ -26,6 +26,40 @@ public class OrderController {
         return ResponseEntity.ok().body(list);
     }
 
+    //CONTROLADOR PARA MOSTRAR TODAS AS ORDENS PENDENTES POR MOMENT
+    @GetMapping("0")
+    public ResponseEntity<List<OrderDTO>> findPendingOrders() {
+        List<OrderDTO> list = service.findPendingOrders();
+        return ResponseEntity.ok().body(list);
+    }
+
+    //CONTROLADOR PARA MOSTRAR TODAS AS ORDENS ACEITAS POR MOMENT
+    @GetMapping("1")
+    public ResponseEntity<List<OrderDTO>> findAcceptedOrders() {
+        List<OrderDTO> list = service.findAcceptedOrders();
+        return ResponseEntity.ok().body(list);
+    }
+
+    //CONTROLADOR PARA MOSTRAR TODAS AS ORDENS ACEITAS POR MOMENT
+    @GetMapping("2")
+    public ResponseEntity<List<OrderDTO>> findDeliveredOrders() {
+        List<OrderDTO> list = service.findDeliveredOrders();
+        return ResponseEntity.ok().body(list);
+    }
+
+    //CONTROLADOR PARA MOSTRAR TODAS AS ORDENS CANCELADAS POR MOMENT
+    @GetMapping("3")
+    public ResponseEntity<List<OrderDTO>> findCanceledOrders() {
+        List<OrderDTO> list = service.findCanceledOrders();
+        return ResponseEntity.ok().body(list);
+    }
+
+
+
+
+
+
+
 
 
 }

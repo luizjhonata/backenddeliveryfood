@@ -23,4 +23,34 @@ public class OrderService {
         return list.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
     }
 
+    //Service para mostrar todas as ordens pendentes ordenada por moment
+    @Transactional(readOnly = true)
+    public List<OrderDTO> findPendingOrders() {
+        List<Order> list = repository.findPendingOrders();
+        return list.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
+    }
+
+    //Service para mostrar todas as ordens aceitas ordenada por moment
+    @Transactional(readOnly = true)
+    public List<OrderDTO> findAcceptedOrders() {
+        List<Order> list = repository.findAcceptedOrders();
+        return list.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
+    }
+
+    //Service para mostrar todas as ordens entregues ordenada por moment
+    @Transactional(readOnly = true)
+    public List<OrderDTO> findDeliveredOrders() {
+        List<Order> list = repository.findDeliveredOrders();
+        return list.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
+    }
+
+    //Service para mostrar todas as ordens canceladas ordenada por moment
+    @Transactional(readOnly = true)
+    public List<OrderDTO> findCanceledOrders() {
+        List<Order> list = repository.findCanceledOrders();
+        return list.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
+    }
+
+
+
 }
