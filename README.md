@@ -59,3 +59,9 @@ cd backendjotafood
 # run the project
 ./mvnw spring-boot:run
 ```
+
+# Autor
+
+Jhonata de Souza Luiz
+
+https://www.linkedin.com/in/jhonataluiz/
