@@ -1,6 +1,6 @@
 INSERT INTO tb_product (name, price, image_Uri, description) VALUES ('Hamburguer', 5, 'hamguerguer_foto', 'Pão, Carne Angus 120Gr, Alface, Tomate e Batata Palha.');
 INSERT INTO tb_product (name, price, image_Uri, description) VALUES ('CheeseBurguer', 7, 'cheeseburguer_foto', 'Pão, Carne Angus 120Gr, Cheddar, Alface, Tomate e Batata Palha.');
-INSERT INTO tb_product (name, price, image_Uri, description) VALUES ('Cheese Bacon', 7, 'cheesebacon_foto', 'Pão, Carne Angus 120Gr, Cheddar, Bacon, Alface, Tomate e Batata Palha.');
+INSERT INTO tb_product (name, price, image_Uri, description) VALUES ('Cheese Bacon', 8, 'cheesebacon_foto', 'Pão, Carne Angus 120Gr, Cheddar, Bacon, Alface, Tomate e Batata Palha.');
 INSERT INTO tb_product (name, price, image_Uri, description) VALUES ('X Tudo', 10, 'xtudo_foto', 'Pão, 2 x Carne Angus 120Gr, Cheddar, Bacon, Presunto, Alface, Tomate e Batata Palha.');
 INSERT INTO tb_product (name, price, image_Uri, description) VALUES ('Coca-Cola', 2, 'coca-cola_foto', 'Pão, Carne Angus 120Gr, Alface, Tomate e Batata Palha.');
 
