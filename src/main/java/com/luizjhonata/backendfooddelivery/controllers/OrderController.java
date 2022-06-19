@@ -64,5 +64,30 @@ public class OrderController {
         return ResponseEntity.created(uri).body(dto);
     }
 
+    //CONTROLARDOR PARA ALTERAR ORDERS PARA ACCEPTED
+    @PutMapping(value = "/{id}/accepted")
+    public ResponseEntity<OrderDTO> setAccepted(@PathVariable Long id){
+        OrderDTO dto = service.setAccepted(id);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    //CONTROLARDOR PARA ALTERAR ORDERS PARA DELIVERED
+    @PutMapping(value = "/{id}/delivered")
+    public ResponseEntity<OrderDTO> setDelivered(@PathVariable Long id){
+        OrderDTO dto = service.setDelivered(id);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    //CONTROLARDOR PARA ALTERAR ORDERS PARA CANCELED
+    @PutMapping(value = "/{id}/canceled")
+    public ResponseEntity<OrderDTO> setCanceled(@PathVariable Long id){
+        OrderDTO dto = service.setCanceled(id);
+        return ResponseEntity.ok().body(dto);
+    }
+
+
+
+
+
 
 }

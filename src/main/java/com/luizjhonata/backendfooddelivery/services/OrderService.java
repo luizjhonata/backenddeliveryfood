@@ -74,5 +74,32 @@ public class OrderService {
         return new OrderDTO(order);
     }
 
+    //Service para mudar status da ordem para accepted
+    @Transactional
+    public OrderDTO setAccepted(Long id) {
+        Order order = repository.getReferenceById(id);
+        order.setStatus(OrderStatus.ACCEPTED);
+        order = repository.save(order);
+        return new OrderDTO(order);
+    }
+
+    //Service para mudar status da ordem para Delived
+    @Transactional
+    public OrderDTO setDelivered(Long id) {
+        Order order = repository.getReferenceById(id);
+        order.setStatus(OrderStatus.DELIVERED);
+        order = repository.save(order);
+        return new OrderDTO(order);
+    }
+
+    //Service para mudar status da ordem para Delived
+    @Transactional
+    public OrderDTO setCanceled(Long id) {
+        Order order = repository.getReferenceById(id);
+        order.setStatus(OrderStatus.CANCELED);
+        order = repository.save(order);
+        return new OrderDTO(order);
+    }
+
 
 }
