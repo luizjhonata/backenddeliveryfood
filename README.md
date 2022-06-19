@@ -1,4 +1,5 @@
 # API REST For a Food Delivery System 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/luizjhonata/backenddeliveryfood/blob/main/LICENCE)
 
 ## About the project
 The project consist in a API REST for a delivery food.
