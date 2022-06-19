@@ -1,17 +1,15 @@
-package com.luizjhonata.backendfooddelivery.entities;
+package com.luizjhonata.backendfooddelivery.dto;
 
-import javax.persistence.*;
+import com.luizjhonata.backendfooddelivery.entities.Order;
+import com.luizjhonata.backendfooddelivery.entities.OrderStatus;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Entity
-@Table(name = "tb_order")
-public class Order {
+public class OrderDTO {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -24,22 +22,30 @@ public class Order {
 
     private OrderStatus status;
 
-    @ManyToMany
-    @JoinTable(name = "tb_order_product",
-        joinColumns = @JoinColumn(name = "order_id"),
-        inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> products = new ArrayList<>();
+    private List<ProductDTO> products = new ArrayList<>();
 
-    public Order() {
+    public OrderDTO() {
     }
 
-    public Order(Long id, String name, String phoneNumber, String address, Instant moment, OrderStatus status) {
+    public OrderDTO(Long id, String name, String phoneNumber, String address, Instant moment, OrderStatus status) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.moment = moment;
         this.status = status;
+    }
+
+    public OrderDTO(Order entity) {
+        id = entity.getId();
+        name = entity.getName();
+        phoneNumber = entity.getPhoneNumber();
+        address = entity.getAddress();
+        moment = entity.getMoment();
+        status = entity.getStatus();
+        products = entity.getProducts().stream()
+                .map(x -> new ProductDTO(x)).collect(Collectors.toList());
+
     }
 
     public Long getId() {
@@ -90,7 +96,7 @@ public class Order {
         this.status = status;
     }
 
-    public List<Product> getProducts() {
+    public List<ProductDTO> getProducts() {
         return products;
     }
 
